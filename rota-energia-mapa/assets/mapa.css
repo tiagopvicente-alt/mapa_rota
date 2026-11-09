@@ -21,11 +21,11 @@
 .rem-mapa img{max-width:none!important}
 .rem-legenda{position:absolute;left:0;right:0;bottom:8px;z-index:500;pointer-events:none;text-align:center;color:var(--rem-texto);font-size:14px;font-weight:600;line-height:18px}
 .rem-seccao path.rem-m{fill:var(--rem-cartao);stroke:var(--rem-fundo);cursor:inherit;outline:none}
-.rem-seccao path.rem-m--visitado{fill:var(--rem-ciano);stroke:var(--rem-fundo);cursor:default}
-.rem-seccao path.rem-m--visitado:hover{fill:var(--rem-verde)}
+.rem-seccao path.rem-m--visitado{fill:var(--rem-verde);stroke:var(--rem-fundo);cursor:default}
+.rem-seccao path.rem-m--visitado:hover{fill:#e6f7c9}
 .rem-seccao path.rem-m:focus{outline:none}
 .rem-seccao .leaflet-bar{border:0;border-radius:8px;overflow:hidden;box-shadow:none;margin:8px 8px 0 0}
-.rem-seccao .leaflet-bar a,.rem-seccao .leaflet-bar a:hover{width:24px;height:24px;line-height:24px;font-size:16px;font-weight:600;background:var(--rem-cartao);color:var(--rem-ciano);border-bottom:1px solid var(--rem-fundo);text-decoration:none}
+.rem-seccao .leaflet-bar a,.rem-seccao .leaflet-bar a:hover{width:24px;height:24px;line-height:24px;font-size:16px;font-weight:600;background:var(--rem-cartao);color:var(--rem-verde);border-bottom:1px solid var(--rem-fundo);text-decoration:none}
 .rem-seccao .leaflet-bar a.leaflet-disabled{color:#6c8496;background:var(--rem-cartao)}
 .rem-seccao .leaflet-control-attribution{background:transparent;color:var(--rem-texto);font-size:9px}
 .rem-seccao .leaflet-control-attribution a{color:inherit}

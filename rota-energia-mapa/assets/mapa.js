@@ -11,7 +11,8 @@
 		var mapa = L.map(el, {
 			zoomSnap: 0,
 			zoomDelta: 1,
-			scrollWheelZoom: false,
+			scrollWheelZoom: true,
+			wheelPxPerZoomLevel: 120,
 			doubleClickZoom: false,
 			boxZoom: false,
 			attributionControl: !!cfg.tiles,

@@ -20,7 +20,7 @@
 .rem-mapa.leaflet-dragging{cursor:grabbing}
 .rem-mapa img{max-width:none!important}
 .rem-legenda{position:absolute;left:0;right:0;bottom:8px;z-index:500;pointer-events:none;text-align:center;color:var(--rem-texto);font-size:14px;font-weight:600;line-height:18px}
-.rem-seccao path.rem-m{fill:var(--rem-cartao);stroke:var(--rem-fundo);cursor:inherit;outline:none}
+.rem-seccao path.rem-m{fill:#466579;stroke:var(--rem-fundo);cursor:inherit;outline:none}
 .rem-seccao path.rem-m--visitado{fill:var(--rem-verde);stroke:var(--rem-fundo);cursor:default}
 .rem-seccao path.rem-m--visitado:hover{fill:#e6f7c9}
 .rem-seccao path.rem-m:focus{outline:none}

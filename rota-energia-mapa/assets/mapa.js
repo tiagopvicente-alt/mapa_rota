@@ -65,23 +65,41 @@
 		}
 	}
 
-	function iniciar() {
-		document.querySelectorAll('.rem-seccao[data-rem-config]').forEach(function (seccao) {
-			var cfg = JSON.parse(seccao.getAttribute('data-rem-config'));
-			var visitados = {};
-			cfg.visitados.forEach(function (c) { visitados[c] = true; });
-			fetch(cfg.dados)
-				.then(function (r) { return r.json(); })
-				.then(function (geo) {
-					seccao.querySelectorAll('[data-rem-regiao]').forEach(function (el) {
-						criarMapa(el, el.getAttribute('data-rem-regiao'), geo, visitados, cfg);
-					});
+	function iniciarSeccao(seccao) {
+		if (seccao.getAttribute('data-rem-iniciado')) {
+			return;
+		}
+		seccao.setAttribute('data-rem-iniciado', '1');
+		var cfg = JSON.parse(seccao.getAttribute('data-rem-config'));
+		var visitados = {};
+		cfg.visitados.forEach(function (c) { visitados[c] = true; });
+		fetch(cfg.dados)
+			.then(function (r) { return r.json(); })
+			.then(function (geo) {
+				seccao.querySelectorAll('[data-rem-regiao]').forEach(function (el) {
+					criarMapa(el, el.getAttribute('data-rem-regiao'), geo, visitados, cfg);
 				});
+			});
+	}
+
+	function iniciar(raiz) {
+		(raiz || document).querySelectorAll('.rem-seccao[data-rem-config]').forEach(iniciarSeccao);
+	}
+
+	function ligarElementor() {
+		window.elementorFrontend.hooks.addAction('frontend/element_ready/rota_energia_mapa.default', function ($el) {
+			iniciar($el[0]);
 		});
 	}
 
+	if (window.elementorFrontend && window.elementorFrontend.hooks) {
+		ligarElementor();
+	} else if (window.jQuery) {
+		window.jQuery(window).on('elementor/frontend/init', ligarElementor);
+	}
+
 	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', iniciar);
+		document.addEventListener('DOMContentLoaded', function () { iniciar(); });
 	} else {
 		iniciar();
 	}

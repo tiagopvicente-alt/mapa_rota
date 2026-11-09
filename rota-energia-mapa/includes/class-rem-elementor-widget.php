@@ -78,26 +78,9 @@ class REM_Elementor_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
-	 * Controlos do widget.
-	 */
-	protected function register_controls() {
-		$this->start_controls_section( 'rem_conteudo', array( 'label' => 'Conteúdo' ) );
-		$this->add_control(
-			'titulo',
-			array(
-				'label'   => 'Título',
-				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => 'Onde já fomos',
-			)
-		);
-		$this->end_controls_section();
-	}
-
-	/**
 	 * Mostra o widget.
 	 */
 	protected function render() {
-		$definicoes = $this->get_settings_for_display();
-		echo rem_render( $definicoes['titulo'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escapado em rem_render().
+		echo rem_render(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escapado em rem_render().
 	}
 }

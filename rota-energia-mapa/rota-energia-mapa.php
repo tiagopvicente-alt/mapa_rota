@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Rota da Energia — Mapa de municípios
  * Description: Mapa dos municípios visitados pela Rota da Energia. Use o widget do Elementor ou o shortcode [rota_energia_mapa].
- * Version:     1.1.0
+ * Version:     1.2.0
  * Author:      ADENE
  * Text Domain: rota-energia-mapa
  * Requires at least: 6.0
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'REM_VERSION', '1.1.0' );
+define( 'REM_VERSION', '1.2.0' );
 define( 'REM_URL', plugin_dir_url( __FILE__ ) );
 define( 'REM_DIR', plugin_dir_path( __FILE__ ) );
 
@@ -60,12 +60,11 @@ add_action(
 );
 
 /**
- * Devolve o HTML da secção do mapa.
+ * Devolve o HTML do mapa.
  *
- * @param string $titulo Título da secção.
  * @return string
  */
-function rem_render( $titulo = 'Onde já fomos' ) {
+function rem_render() {
 	wp_enqueue_style( 'rem-mapa' );
 	wp_enqueue_script( 'rem-mapa' );
 
@@ -93,12 +92,8 @@ function rem_render( $titulo = 'Onde já fomos' ) {
 
 	ob_start();
 	?>
-	<section class="rem-seccao alignfull" data-rem-config="<?php echo esc_attr( wp_json_encode( $config ) ); ?>">
+	<section class="rem-seccao" aria-label="Municípios visitados pela Rota da Energia" data-rem-config="<?php echo esc_attr( wp_json_encode( $config ) ); ?>">
 		<div class="rem-conteudo">
-			<div class="rem-cabecalho">
-				<span class="rem-marca" aria-hidden="true"><i></i><b></b></span>
-				<h2 class="rem-titulo"><?php echo esc_html( $titulo ); ?></h2>
-			</div>
 			<div class="rem-cartao">
 				<div class="rem-paineis">
 					<?php foreach ( $paineis as $id => $legenda ) : ?>
@@ -122,9 +117,8 @@ function rem_render( $titulo = 'Onde já fomos' ) {
 
 add_shortcode(
 	'rota_energia_mapa',
-	function ( $atts ) {
-		$atts = shortcode_atts( array( 'titulo' => 'Onde já fomos' ), $atts, 'rota_energia_mapa' );
-		return rem_render( $atts['titulo'] );
+	function () {
+		return rem_render();
 	}
 );
 

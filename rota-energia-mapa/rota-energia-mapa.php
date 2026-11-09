@@ -77,7 +77,7 @@ add_shortcode(
 		natcasesort( $nomes );
 
 		$config = array(
-			'dados'     => REM_URL . 'data/municipios.geojson?v=' . REM_VERSION,
+			'dados'     => REM_URL . 'assets/municipios.json?v=' . REM_VERSION,
 			'visitados' => rem_visitados(),
 			'tiles'     => (string) get_option( 'rem_tiles_url', '' ),
 			'atrib'     => (string) get_option( 'rem_tiles_atrib', '' ),

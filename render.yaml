@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: mapa-rota
+    runtime: static
+    staticPublishPath: .

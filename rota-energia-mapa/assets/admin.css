@@ -1,0 +1,7 @@
+.rem-ferramentas{display:flex;align-items:center;gap:16px}
+.rem-ferramentas input{min-width:260px}
+.rem-grupos{columns:3 300px;column-gap:16px}
+.rem-grupo{break-inside:avoid;background:#fff;border:1px solid #dcdcde;border-radius:4px;padding:8px 12px 12px;margin:0 0 16px}
+.rem-grupo legend{font-weight:600;padding:0 4px}
+.rem-grupo label{display:block;padding:2px 0}
+.rem-grupo.rem-oculto,.rem-grupo label.rem-oculto{display:none}

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Rota da Energia — Mapa de municípios
  * Description: Mapa dos municípios visitados pela Rota da Energia. Use o widget do Elementor ou o shortcode [rota_energia_mapa].
- * Version:     1.2.0
+ * Version:     1.2.1
  * Author:      ADENE
  * Text Domain: rota-energia-mapa
  * Requires at least: 6.0
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'REM_VERSION', '1.2.0' );
+define( 'REM_VERSION', '1.2.1' );
 define( 'REM_URL', plugin_dir_url( __FILE__ ) );
 define( 'REM_DIR', plugin_dir_path( __FILE__ ) );
 

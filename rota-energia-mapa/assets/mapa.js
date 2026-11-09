@@ -18,7 +18,9 @@
 			attributionControl: !!cfg.tiles,
 			zoomControl: false
 		});
-		L.control.zoom({ position: regiao === 'madeira' ? 'topleft' : 'topright', zoomInTitle: 'Aproximar', zoomOutTitle: 'Afastar' }).addTo(mapa);
+		var zoom = L.control.zoom({ position: 'topright', zoomInTitle: 'Aproximar', zoomOutTitle: 'Afastar' }).addTo(mapa);
+		// Os botões ficam numa faixa própria do painel, fora da área do mapa.
+		el.parentNode.appendChild(zoom.getContainer());
 		if (mapa.attributionControl) {
 			mapa.attributionControl.setPrefix(false);
 		}
@@ -30,7 +32,7 @@
 		var limites = LIMITES[regiao];
 		function ajustar() {
 			mapa.invalidateSize(false);
-			mapa.fitBounds(limites, { paddingTopLeft: [10, 10], paddingBottomRight: [10, 34], animate: false });
+			mapa.fitBounds(limites, { padding: [6, 6], animate: false });
 			mapa.setMinZoom(mapa.getZoom());
 			mapa.setMaxZoom(mapa.getZoom() + 6);
 		}
